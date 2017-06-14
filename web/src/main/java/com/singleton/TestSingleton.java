@@ -49,5 +49,7 @@ public class TestSingleton {
         this.name2 = name2;
     }
 
+
+
 }
 

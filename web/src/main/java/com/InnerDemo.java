@@ -32,7 +32,7 @@ import lombok.Data;
  *         </pre>
  */
 @Data
-public class innerDemo {
+public class InnerDemo {
         private String name ;
         private int age;
 
@@ -50,8 +50,8 @@ public class innerDemo {
         }
 
         public static void main(String[] args) {
-            innerDemo outerClass = new innerDemo();
-            innerDemo.InnerClass innerClass = outerClass.new InnerClass();
+            InnerDemo outerClass = new InnerDemo();
+            InnerDemo.InnerClass innerClass = outerClass.new InnerClass();
             innerClass.display();
         }
 
