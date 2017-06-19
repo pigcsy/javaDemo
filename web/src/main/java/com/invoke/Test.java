@@ -61,6 +61,9 @@ public class Test {
             System.out.println((i + 1) + "：" + fas[i].getName());
         }
 
+        Class fass = a.getSuperclass();
+        System.out.println(fass.getName());
+
         //Calculator proxied =(Calculator)ProxyFactory.getHandler(Calculator.class, calcImpl, new SomeHandler(calcImpl));
         // (Calculator) ProxyFactory.getProxy (Calculator.class, calcImpl, new SomeHandler(calcImpl));
         // int result = proxied.Calculate(20, 10);
