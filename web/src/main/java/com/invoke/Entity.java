@@ -13,4 +13,8 @@ public class Entity {
     private String age = null;
     private String tel = null;
     private String address = null;
+    private void showPeopleInfo() {
+       System.out.println(name + " " + sex + " " + age + " " + tel + " "
+                + address);
+        }
 }
