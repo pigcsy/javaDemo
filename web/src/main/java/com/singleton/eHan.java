@@ -5,12 +5,13 @@ package com.singleton;
  */
 
 public class eHan {
+    private static eHan instance = new eHan();
+
     //饿汉（不存在线程问题）
-    private eHan(){}
+    private eHan() {
+    }
 
-    private static eHan instance=new eHan();
-
-    public static eHan getInstance(){
+    public static eHan getInstance() {
         return instance;
     }
 

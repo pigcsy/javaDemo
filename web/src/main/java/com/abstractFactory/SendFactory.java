@@ -10,10 +10,11 @@ import com.factory.SmsSender;
 
 public class SendFactory {
 
-    public static Sender produceMail(){
+    public static Sender produceMail() {
         return new MailSender();
     }
-    public static Sender produceSms(){
+
+    public static Sender produceSms() {
         return new SmsSender();
     }
 }

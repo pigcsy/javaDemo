@@ -21,7 +21,7 @@ public class ThirdRxJava {
                 Observable.from(list).subscribe(new Action1<String>() {
                     @Override
                     public void call(String s) {
-                        System.out.println("这不是一个标准写法！"+s);
+                        System.out.println("这不是一个标准写法！" + s);
                     }
                 });
             }

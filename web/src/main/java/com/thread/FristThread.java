@@ -4,15 +4,25 @@ package com.thread;
  * Created by maven on 2017/2/13.
  */
 public class FristThread {
+    public static void main(String[] args) {
+        Thread1 mTh1 = new Thread1("A");
+        Thread1 mTh2 = new Thread1("B");
+        mTh1.start();
+        mTh2.start();
+
+    }
+
     /**
-     *@functon 多线程学习  继承thread
-     *@author pig
+     * @author pig
+     * @functon 多线程学习  继承thread
      */
-    static class Thread1 extends Thread{
+    static class Thread1 extends Thread {
         private String name;
+
         public Thread1(String name) {
-            this.name=name;
+            this.name = name;
         }
+
         public void run() {
             for (int i = 0; i < 5; i++) {
                 System.out.println(name + "运行  :  " + i);
@@ -24,12 +34,5 @@ public class FristThread {
             }
 
         }
-    }
-        public static void main(String[] args) {
-            Thread1 mTh1=new Thread1("A");
-            Thread1 mTh2=new Thread1("B");
-            mTh1.start();
-            mTh2.start();
-
     }
 }

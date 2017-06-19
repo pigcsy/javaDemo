@@ -11,24 +11,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class People {
-        /** 学号 */
-        private long id;
+    /**
+     * 学号
+     */
+    private long id;
 
-        private String name;
+    private String name;
 
-        private int age;
+    private int age;
 
-        /** 年级 */
-        private int grade;
+    /**
+     * 年级
+     */
+    private int grade;
 
-        /** 专业 */
-        private String major;
+    /**
+     * 专业
+     */
+    private String major;
 
-        /** 学校 */
-        private String school;
+    /**
+     * 学校
+     */
+    private String school;
 
-        // List<String> str;
+    // List<String> str;
 
 
-        // 省略getter和setter
+    // 省略getter和setter
 }

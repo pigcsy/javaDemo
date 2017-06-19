@@ -10,13 +10,13 @@ import java.util.Calendar;
  */
 public class CalendarTools {
 
-        //  if (request.getScoreTime() != null) {
-        // query.setScoreTime(request.getScoreTime());
-        // query.setScoreTimes(CalendarTools.buildTime(CalendarTools.lastDayOfMonth(request.getScoreTime().getTime()), CalendarTools.END_TIME).getTime());
-        //  } else {
-        // query.setScoreTime(CalendarTools.buildTime(CalendarTools.firstDayOfMonth(), CalendarTools.START_TIME).getTime());
-        // query.setScoreTimes(CalendarTools.buildTime(CalendarTools.lastDayOfMonth(), CalendarTools.END_TIME).getTime());
-        // }
+    //  if (request.getScoreTime() != null) {
+    // query.setScoreTime(request.getScoreTime());
+    // query.setScoreTimes(CalendarTools.buildTime(CalendarTools.lastDayOfMonth(request.getScoreTime().getTime()), CalendarTools.END_TIME).getTime());
+    //  } else {
+    // query.setScoreTime(CalendarTools.buildTime(CalendarTools.firstDayOfMonth(), CalendarTools.START_TIME).getTime());
+    // query.setScoreTimes(CalendarTools.buildTime(CalendarTools.lastDayOfMonth(), CalendarTools.END_TIME).getTime());
+    // }
 
 
     public static final String START_TIME = "0"; // 开始时间

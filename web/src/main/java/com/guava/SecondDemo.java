@@ -19,10 +19,10 @@ public class SecondDemo {
         String delimiter = ",";
 
         // 传统方法，采用stringbuilder
-        System.out.println("传统方法:{}"+joinWithStringBuilder(list, delimiter));
+        System.out.println("传统方法:{}" + joinWithStringBuilder(list, delimiter));
 
         // 采用guava提供的Joiner类
-        System.out.println("采用joiner:{}"+joinWithGuava(list, delimiter));
+        System.out.println("采用joiner:{}" + joinWithGuava(list, delimiter));
     }
 
     private String joinWithGuava(List<String> list, String delimiter) {
@@ -46,10 +46,10 @@ public class SecondDemo {
     }
 
     @Test
-    public void common(){
-        String testString="Monday,Tuesday,Thursday,Friday,,";
-        Iterable<String> parts=Splitter.on(",").split(testString);
-        for(String s:parts)
+    public void common() {
+        String testString = "Monday,Tuesday,Thursday,Friday,,";
+        Iterable<String> parts = Splitter.on(",").split(testString);
+        for (String s : parts)
             System.out.println(s);
     }
 
@@ -57,13 +57,13 @@ public class SecondDemo {
      * Splitter.trimResults 去掉结果集Iterable每个元素的首尾的空格
      */
     @Test
-    public void trimResults(){
+    public void trimResults() {
         //Just like the Joiner class,Splitter is immutable on creation,
         //so care must be taken to not call the trimResults method after
         //creating the original Splitter class
-        Splitter splitter=Splitter.on("|").trimResults();
-        Iterable<String> parts=splitter.split("1| 2 | 3 |||");
-        for(String s:parts)
+        Splitter splitter = Splitter.on("|").trimResults();
+        Iterable<String> parts = splitter.split("1| 2 | 3 |||");
+        for (String s : parts)
             System.out.print(s);
     }
 
@@ -71,11 +71,11 @@ public class SecondDemo {
      * 将指定格式的字符串分割成map
      */
     @Test
-    public void testSplitToMap(){
-        String testString="Washington D.C=Redskins#New York City=Giants#Philadelphia=Eagles#Dallas=Cowboys";
-        Splitter.MapSplitter mapSplitter=Splitter.on("#").withKeyValueSeparator("=");
-        Map<String,String> testMap=mapSplitter.split(testString);
-        for(String key:testMap.keySet())
+    public void testSplitToMap() {
+        String testString = "Washington D.C=Redskins#New York City=Giants#Philadelphia=Eagles#Dallas=Cowboys";
+        Splitter.MapSplitter mapSplitter = Splitter.on("#").withKeyValueSeparator("=");
+        Map<String, String> testMap = mapSplitter.split(testString);
+        for (String key : testMap.keySet())
             System.out.println(testMap.get(key));
 
     }

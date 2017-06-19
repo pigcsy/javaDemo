@@ -30,32 +30,29 @@ public class FristDemo {
      * @Description: Fucntion<K,V>接口提供的apply是用来将对象K转换为对象V的
      */
 
-        /**
-         *
-         * @Title: testJoiner
-         * @Description: 利用某个分隔符将一组字符串分隔开来
-         *
-         *               输出结果为：
-         *               传统方法：loda,vigoss,merlini
-         *               采用joiner:loda,vigoss,merlini
-         *
-         * 
-         * @return void 返回类型
-         * @throws
-         */
+    /**
+     * @return void 返回类型
+     * @throws
+     * @Title: testJoiner
+     * @Description: 利用某个分隔符将一组字符串分隔开来
+     * <p>
+     * 输出结果为：
+     * 传统方法：loda,vigoss,merlini
+     * 采用joiner:loda,vigoss,merlini
+     */
 
-        @Test
-        public void testJoiner(){
-            List<String> list = Lists.newArrayList("maven", "com/guava", "", "merlini");
+    @Test
+    public void testJoiner() {
+        List<String> list = Lists.newArrayList("maven", "com/guava", "", "merlini");
 
-            String delimiter = ",";
+        String delimiter = ",";
 
-            // 传统方法，采用stringbuilder
-            System.out.println("传统方法:{}"+joinWithStringBuilder(list, delimiter));
+        // 传统方法，采用stringbuilder
+        System.out.println("传统方法:{}" + joinWithStringBuilder(list, delimiter));
 
-            // 采用guava提供的Joiner类
-            System.out.println("采用joiner:{}"+joinWithGuava(list, delimiter));
-        }
+        // 采用guava提供的Joiner类
+        System.out.println("采用joiner:{}" + joinWithGuava(list, delimiter));
+    }
 
 
     private String joinWithGuava(List<String> list, String delimiter) {
@@ -79,17 +76,14 @@ public class FristDemo {
     }
 
     /**
-     *
-     * @Title: testMapJoiner
-     * @Description: 将一个map型数据组合成一个由指定分隔符分开的key-value样式
-     *
-     *               输出结果为：
-     *
-     *               贝克汉姆:中场;罗纳尔多:前锋;布冯:门将;齐达内:中场
-     *
-     * 
      * @return void 返回类型
      * @throws
+     * @Title: testMapJoiner
+     * @Description: 将一个map型数据组合成一个由指定分隔符分开的key-value样式
+     * <p>
+     * 输出结果为：
+     * <p>
+     * 贝克汉姆:中场;罗纳尔多:前锋;布冯:门将;齐达内:中场
      */
     @Test
     public void testMapJoiner() {
@@ -110,12 +104,10 @@ public class FristDemo {
     }
 
     /**
-     *
-     * @Title: testSplitter
-     * @Description: 将含有指定分隔符的字符串分开
-     * 
      * @return void 返回类型
      * @throws
+     * @Title: testSplitter
+     * @Description: 将含有指定分隔符的字符串分开
      */
     @Test
     public void testSplitter() {
@@ -130,18 +122,14 @@ public class FristDemo {
     }
 
     /**
-     *
-     * @Title: testMapSplitter
-     * @Description:使用MapSplitter可以将按照键值对规则组合起来的字符串，拆分成一个一个map中的键值对
-     *
-     *  输出结果为：
-     *              key为贝克汉姆,value为中场
-     *		key为罗纳尔多,value为前锋
-     *		key为布冯,value为门将
-     *		key为齐达内,value为中场
-
      * @return void 返回类型
      * @throws
+     * @Title: testMapSplitter
+     * @Description:使用MapSplitter可以将按照键值对规则组合起来的字符串，拆分成一个一个map中的键值对 输出结果为：
+     * key为贝克汉姆,value为中场
+     * key为罗纳尔多,value为前锋
+     * key为布冯,value为门将
+     * key为齐达内,value为中场
      */
     @Test
     public void testMapSplitter() {
@@ -153,17 +141,15 @@ public class FristDemo {
                 .withKeyValueSeparator(":").split(text);
 
         for (Map.Entry<String, String> e : map.entrySet()) {
-            System.out.print("key为{},value为{}"+ e.getKey() + e.getValue());
+            System.out.print("key为{},value为{}" + e.getKey() + e.getValue());
         }
     }
 
     /**
-     *
-     * @Title: testCharsets
-     * @Description: 字符集处理
-     * 
      * @return void 返回类型
      * @throws
+     * @Title: testCharsets
+     * @Description: 字符集处理
      */
     @SuppressWarnings("unused")
     @Test
@@ -184,11 +170,10 @@ public class FristDemo {
     }
 
     /**
-     *
-     * @Title: testStrings
-     * @Description: 给指定的字符串后添加字符
      * @return void 返回类型
      * @throws
+     * @Title: testStrings
+     * @Description: 给指定的字符串后添加字符
      */
     @Test
     public void testStrings() {
@@ -255,6 +240,11 @@ public class FristDemo {
     }
 
     private class Student implements Comparable<Student> {
+        private int id;
+        private String name;
+        private String sex;
+        private int age;
+
         public Student(int id, String name, String sex, int age) {
             super();
             this.id = id;
@@ -262,14 +252,6 @@ public class FristDemo {
             this.sex = sex;
             this.age = age;
         }
-
-        private int id;
-
-        private String name;
-
-        private String sex;
-
-        private int age;
 
         @Override
         public String toString() {

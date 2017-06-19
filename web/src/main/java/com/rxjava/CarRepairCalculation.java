@@ -9,7 +9,7 @@ import rx.functions.Func1;
  * Created by maven on 2017/2/15.
  */
 public class CarRepairCalculation {
-    public static Integer CarRepairPrice(final Integer carPrice,final Integer amt,final Integer city) { //城市对应ID：杭州(1) 北京(2) 广州(3) 上海(4)
+    public static Integer CarRepairPrice(final Integer carPrice, final Integer amt, final Integer city) { //城市对应ID：杭州(1) 北京(2) 广州(3) 上海(4)
         final Integer[] price = {0};
         Observable.create(new Observable.OnSubscribe<Integer>() {
 
@@ -17,7 +17,7 @@ public class CarRepairCalculation {
             public void call(Subscriber<? super Integer> subscriber) {           //条件 ···
                 try {
                     if (amt >= carPrice * 0.3) {
-                        if(amt < carPrice){
+                        if (amt < carPrice) {
                             if (0 <= amt && 0 <= carPrice) {
                                 double carPrices = carPrice;
                                 double amts = amt;
@@ -46,7 +46,7 @@ public class CarRepairCalculation {
                                 price[0] = (new Double(priceNonMemberNoS)).intValue();
                                 subscriber.onNext(price[0]);
                             }
-                        }else{
+                        } else {
                             throw new Throwable("最高可购买额度不超过车辆购置价");
                         }
                     } else {

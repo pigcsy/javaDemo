@@ -5,11 +5,12 @@ package com.singleton;
  */
 
 public class lanHanNoSynchronized {
-    private lanHanNoSynchronized(){
-    }
-     private  static lanHanNoSynchronized instance=null;
+    private static lanHanNoSynchronized instance = null;
 
-    public static lanHanNoSynchronized getInstence(){
+    private lanHanNoSynchronized() {
+    }
+
+    public static lanHanNoSynchronized getInstence() {
         if (instance == null)
             instance = new lanHanNoSynchronized();
         return instance;

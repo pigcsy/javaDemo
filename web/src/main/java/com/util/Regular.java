@@ -19,23 +19,23 @@ import static org.apache.http.impl.client.HttpClients.createDefault;
  */
 
 public class Regular {
-    public static String SplicedSql(String sql,List<String> whereClause ) {
+    public static String SplicedSql(String sql, List<String> whereClause) {
         StringBuffer sbSql = new StringBuffer();
-        if(CollectionUtils.isNotEmpty(whereClause)){
+        if (CollectionUtils.isNotEmpty(whereClause)) {
             sbSql.append(sql).append(" ").append("where");
-        }else{
+        } else {
             sbSql.append(sql).append(" ");
         }
         String whereClauseString = Joiner.on(' ').skipNulls().join(whereClause);
         whereClauseString = whereClauseString.replaceFirst("^(\\s*(and|AND|OR|or)?\\s+)", " ");
-        return  sbSql.append(whereClauseString).toString();
+        return sbSql.append(whereClauseString).toString();
     }
 
     public static class ChatbotSend {
 
         public static String WEBHOOK_TOKEN = "https://oapi.dingtalk.com/robot/send?access_token=8b372eccda448a0cf918a17b2bd9498075392b50adf1a5e094db3089aaf59bf9";
 
-        public static void main(String args[]) throws Exception{
+        public static void main(String args[]) throws Exception {
 
             HttpClient httpclient = createDefault();
 
@@ -47,8 +47,8 @@ public class Regular {
             httppost.setEntity(se);
 
             HttpResponse response = httpclient.execute(httppost);
-            if (response.getStatusLine().getStatusCode()== HttpStatus.SC_OK){
-                String result= EntityUtils.toString(response.getEntity());
+            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+                String result = EntityUtils.toString(response.getEntity());
                 System.out.println(result);
             }
         }

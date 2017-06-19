@@ -12,8 +12,8 @@ public class Comparator {
     public static void main(String[] args) {
         class Foo {
             @Nullable
-            String sortedBy="a,b,c";
-            int notSortedBy=123;
+            String sortedBy = "a,b,c";
+            int notSortedBy = 123;
         }
         Ordering<Foo> ordering = Ordering.natural().nullsFirst().onResultOf(new Function<Foo, String>() {
             public String apply(Foo foo) {
@@ -23,6 +23,7 @@ public class Comparator {
             public String reString(Foo foo) {
                 return foo.sortedBy;
             }
+
             public int reInt(Foo foo) {
                 return foo.notSortedBy;
             }

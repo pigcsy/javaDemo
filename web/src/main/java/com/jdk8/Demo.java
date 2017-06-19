@@ -78,14 +78,14 @@ public class Demo {
         // System.out.println(polyglot.getLanguages());
         // System.out.println(teamLanguages);
 
-        String[] one = {"大", "头", "是", "傻", "逼","吗"};
-        String[] two = {"那", "必", "需","不","是", "啊"};
+        String[] one = {"大", "头", "是", "傻", "逼", "吗"};
+        String[] two = {"那", "必", "需", "不", "是", "啊"};
         List<String[]> tesList = new ArrayList<>();
         tesList.add(one);
         tesList.add(two);
         String test = tesList.stream()
                 //.map(str -> tesList.toString().split(","))
-                .filter(str ->! "不".equals (str))
+                .filter(str -> !"不".equals(str))
                 //.allMatch(str ->!"bu".equals (tesList.toString()))
                 .flatMap(strings -> Arrays.stream(strings))
                 .collect(Collectors.joining(","));

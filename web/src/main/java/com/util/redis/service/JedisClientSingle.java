@@ -4,11 +4,12 @@ package com.util.redis.service;
 /**
  * 单机版jedis
  * 参考博文:http://www.jianshu.com/p/da69edda2a43
- *         http://www.jianshu.com/p/c3b8180af944
+ * http://www.jianshu.com/p/c3b8180af944
+ *
  * @author Niu Li
  * @date 2016/12/8
  */
-public class JedisClientSingle implements JedisClient{
+public class JedisClientSingle implements JedisClient {
     /**
      * 根据key值获取
      *

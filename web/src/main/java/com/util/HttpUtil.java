@@ -1,4 +1,5 @@
 package com.util;//import org.apache.commons.io.IOUtils;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -44,9 +45,9 @@ import java.util.Map;
  * @date : 2016/6/6
  */
 public class HttpUtil {
+    private static final int MAX_TIMEOUT = 7000;
     private static PoolingHttpClientConnectionManager connMgr;
     private static RequestConfig requestConfig;
-    private static final int MAX_TIMEOUT = 7000;
 
     static {
         // 设置连接池
@@ -74,7 +75,7 @@ public class HttpUtil {
      * @return
      */
     public static String doGet(String url) {
-        return doGet(url, new HashMap<String, Object>(),false);
+        return doGet(url, new HashMap<String, Object>(), false);
     }
 
     /**
@@ -84,8 +85,8 @@ public class HttpUtil {
      * @param params
      * @return
      */
-    public static String doGet(String url, Map<String, Object> params,boolean isHttps) {
-        HttpResponse response=null;
+    public static String doGet(String url, Map<String, Object> params, boolean isHttps) {
+        HttpResponse response = null;
         String apiUrl = url;
         StringBuffer param = new StringBuffer();
         int i = 0;
@@ -99,11 +100,11 @@ public class HttpUtil {
         }
         apiUrl += param;
         String result = null;
-        CloseableHttpClient httpclient =null;
-        if(isHttps){
-            httpclient=createSSLClientDefault();
-        }else {
-            httpclient=HttpClients.createDefault();
+        CloseableHttpClient httpclient = null;
+        if (isHttps) {
+            httpclient = createSSLClientDefault();
+        } else {
+            httpclient = HttpClients.createDefault();
         }
         try {
             HttpGet httpGet = new HttpGet(apiUrl);
@@ -114,11 +115,11 @@ public class HttpUtil {
             if (entity != null) {
                 //InputStream instream = entity.getContent();
                 //result = IOUtils.toString(instream, "UTF-8");
-                result=EntityUtils.toString(entity, "UTF-8");
+                result = EntityUtils.toString(entity, "UTF-8");
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             if (response != null) {
                 try {
                     EntityUtils.consume(response.getEntity());
@@ -344,7 +345,8 @@ public class HttpUtil {
         }
         return sslsf;
     }
-    public static CloseableHttpClient createSSLClientDefault(){
+
+    public static CloseableHttpClient createSSLClientDefault() {
         try {
             SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
                 //信任所有
@@ -362,6 +364,6 @@ public class HttpUtil {
         } catch (KeyStoreException e) {
             e.printStackTrace();
         }
-        return  HttpClients.createDefault();
+        return HttpClients.createDefault();
     }
 }

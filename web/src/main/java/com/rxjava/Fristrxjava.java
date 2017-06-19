@@ -49,7 +49,7 @@ public class Fristrxjava {
         // System.out.println(Observable.range(10, 5));
         // System.out.println(Observable.timer(3, TimeUnit.SECONDS));
         //Observable.just("hi dear").repeat(3);//重复发射3次
-       // Thread.sleep(1000);
+        // Thread.sleep(1000);
 
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
@@ -57,7 +57,8 @@ public class Fristrxjava {
                 subscriber.onNext("create1"); //发射一个"create1"的String
                 subscriber.onNext("create2"); //发射一个"create2"的String
                 subscriber.onCompleted();//发射完成,这种方法需要手动调用onCompleted，才会回调Observer的onCompleted方法
-            }});
+            }
+        });
 
         List<String> list = new ArrayList<>();
         list.add("from1");
