@@ -2,8 +2,8 @@ package com.jdk8;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Created by maven on 2017/4/5.
@@ -78,18 +78,58 @@ public class Demo {
         // System.out.println(polyglot.getLanguages());
         // System.out.println(teamLanguages);
 
-        String[] one = {"大", "头", "是", "傻", "逼", "吗"};
-        String[] two = {"那", "必", "需", "不", "是", "啊"};
-        List<String[]> tesList = new ArrayList<>();
-        tesList.add(one);
-        tesList.add(two);
-        String test = tesList.stream()
-                //.map(str -> tesList.toString().split(","))
-                .filter(str -> !"不".equals(str))
-                //.allMatch(str ->!"bu".equals (tesList.toString()))
-                .flatMap(strings -> Arrays.stream(strings))
-                .collect(Collectors.joining(","));
+        // String[] one = {"大", "头", "是", "傻", "逼", "吗"};
+        // String[] two = {"那", "必", "需", "不", "是", "啊"};
+        // List<String[]> tesList = new ArrayList<>();
+        // tesList.add(one);
+        // tesList.add(two);
+        // String test = tesList.stream()
+        //         //.map(str -> tesList.toString().split(","))
+        //         .filter(str -> !"不".equals(str))
+        //         //.allMatch(str ->!"bu".equals (tesList.toString()))
+        //         .flatMap(strings -> Arrays.stream(strings))
+        //         .collect(Collectors.joining(","));
+        //
+        // System.out.println(test.toString());
 
-        System.out.println(test.toString());
+        // Stream<Integer> integerStream = Stream.of(1, 2, 3, 5,3,3,3,3,3,3,3,3,3,3,3);
+        // Stream.iterate(3, item -> item + 1).limit(10).forEach(System.out::println);
+
+
+        // List<Integer> nums = Lists.newArrayList(1,1,null,2,3,4,null,5,6,7,8,9,10);
+        // System.out.println("sum is:"+nums.stream().filter(num -> num != null).
+        //         distinct().mapToInt(num -> num * 2).
+        //         peek(System.out::println).skip(2).limit(4).sum());
+// //获取日期时间
+//         final Clock clock = Clock.systemUTC();
+//
+//         System.out.println(clock.instant());
+//         System.out.println(clock.millis());
+//         final Clock clock = Clock.systemUTC();
+//         // Get the local date and local time
+//         final LocalDate date = LocalDate.now();
+//         final LocalDate dateFromClock = LocalDate.now(clock);
+//         System.out.println(date);
+//         System.out.println(dateFromClock);
+// // Get the local date and local time
+//         final LocalTime time = LocalTime.now();
+//         final LocalTime timeFromClock = LocalTime.now(clock);
+//         System.out.println(time);
+//         System.out.println(timeFromClock);
+
+        final Collection< Task > tasks = Arrays.asList(
+        new Task( Status.OPEN, 5 ),
+        new Task( Status.OPEN, 13 ),
+        new Task( Status.CLOSED, 8 )
+        );
+        // Calculate total points of all active tasks using sum()
+        final long totalPointsOfOpenTasks = tasks
+                .stream()
+                .filter( task -> task.getStatus() == Status.OPEN )
+                .mapToInt( Task::getPoints)
+                .sum();
+
+        System.out.println( "Total points: " + totalPointsOfOpenTasks );
+
     }
 }
