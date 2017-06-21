@@ -1,8 +1,13 @@
 package com.jdk8;
 
+import java.io.IOException;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
@@ -117,19 +122,47 @@ public class Demo {
 //         System.out.println(time);
 //         System.out.println(timeFromClock);
 
-        final Collection< Task > tasks = Arrays.asList(
-        new Task( Status.OPEN, 5 ),
-        new Task( Status.OPEN, 13 ),
-        new Task( Status.CLOSED, 8 )
-        );
-        // Calculate total points of all active tasks using sum()
-        final long totalPointsOfOpenTasks = tasks
-                .stream()
-                .filter( task -> task.getStatus() == Status.OPEN )
-                .mapToInt( Task::getPoints)
-                .sum();
+        // final Collection< Task > tasks = Arrays.asList(
+        // new Task( Status.OPEN, 5 ),
+        // new Task( Status.OPEN, 13 ),
+        // new Task( Status.CLOSED, 8 )
+        // );
+        // // Calculate total points of all active tasks using sum()
+        // final long totalPointsOfOpenTasks = tasks
+        //         .stream()
+        //         .filter( task -> task.getStatus() == Status.OPEN )
+        //         .mapToInt( Task::getPoints)
+        //         .sum();
+        //
+        // System.out.println( "Total points: " + totalPointsOfOpenTasks );
+  //
+  //       Path path= Paths.get("D:\\chengniu");
+  // /*① 获取名称元素的数量*/
+  //       System.out.println("Number of Name Elements Path [" + path.getNameCount() + "]");
+  //       System.out.println("Number of Name Elements Path [" + path.getFileName() + "]");
+  // /*② 获取Path的信息*/
+  //       System.out.println("Parent Path [" + path.getParent() + "]");
+  //       System.out.println("Root of Path [" + path.getRoot() + "]");
+  //       System.out.println("Subpath from Root, 2 elements deep [" + path.subpath(0, 1) + "]");
 
-        System.out.println( "Total points: " + totalPointsOfOpenTasks );
 
+        Path startingDir = Paths.get("D:\\\\chengniu");//设置起始目录
+        try {
+            Files.walkFileTree(startingDir, new FindJavaVisitor()); //①调用walkFileTree
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    private static class FindJavaVisitor extends SimpleFileVisitor<Path> //②扩展SimpleFileVisitor<Path>
+    {
+        @Override
+        public FileVisitResult
+        visitFile(Path file, BasicFileAttributes attrs) //③ 重写visitFile方法
+        {
+            if (file.toString().endsWith(".java")) {
+                System.out.println(file.getFileName());
+            }
+            return FileVisitResult.CONTINUE;
+        }
+            }
 }
