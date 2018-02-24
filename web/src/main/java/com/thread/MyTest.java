@@ -28,6 +28,7 @@ package com.thread;/**
  *                         </pre>
  */
 public class MyTest implements Runnable {
+
     public static void main(String[] args) {
         MyTest test = new MyTest();
         test.run();
